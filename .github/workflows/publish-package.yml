@@ -23,11 +23,12 @@ jobs:
       #    but stupid github actions don't support running actions in a subdir
       #
       # :-(
+      - run: npm install
+        working-directory: sdk
       - run: |
           echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "registry=https://npm.pkg.github.com" >> .npmrc
           echo "always-auth: true" >> .npmrc
-        working-directory: sdk
-      - run: npm install
         working-directory: sdk
       - run: npm publish
         working-directory: sdk
