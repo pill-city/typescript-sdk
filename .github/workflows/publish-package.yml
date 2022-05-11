@@ -17,9 +17,8 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@pill-city'
       - run: npm install
-      - run: echo "registry=https://npm.pkg.github.com/@pill-city" >> .npmrc
+      - run: echo "registry=https://npm.pkg.github.com/pill-city" >> .npmrc
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
