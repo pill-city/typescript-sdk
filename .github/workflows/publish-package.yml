@@ -15,10 +15,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 14
-          registry-url: https://npm.pkg.github.com/
-      - run: npm install
+      # Had to configure npm publish, e.g. .npmrc, "manually" in the sdk dir because
+      # 1) stupid cpina/github-action-push-to-another-repository overwrites this repo entirely
+      #    so we had to put the generated code in the sdk subdir
+      #    so that we don't overwrite the .github dir
+      # 2) thus we had to run the npm configure stuff in the sdk subdir
+      #    but stupid github actions don't support running actions in a subdir
+      #
+      # :-(
+      - run: |
+          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
+          echo "always-auth: true" >> .npmrc
         working-directory: sdk
-      - run: npm run build
+      - run: npm install
         working-directory: sdk
       - run: npm publish
         working-directory: sdk
