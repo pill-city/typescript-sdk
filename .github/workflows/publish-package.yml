@@ -1,36 +1,22 @@
 name: Publish Package
 
 on:
-  push:
-    branches: ['master']
+ push:
+   branches: ['master']
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 14
-      # Had to configure npm publish, e.g. .npmrc, "manually" in the sdk dir because
-      # 1) stupid cpina/github-action-push-to-another-repository overwrites this repo entirely
-      #    so we had to put the generated code in the sdk subdir
-      #    so that we don't overwrite the .github dir
-      # 2) thus we had to run the npm configure stuff in the sdk subdir
-      #    but stupid github actions don't support running actions in a subdir
-      #
-      # :-(
-      - run: npm install
-        working-directory: sdk
-      - run: |
-          echo "//npm.pkg.github.com/:_authToken=\${NODE_AUTH_TOKEN}" >> .npmrc
-          echo "registry=https://npm.pkg.github.com" >> .npmrc
-          echo "always-auth: true" >> .npmrc
-        working-directory: sdk
-      - run: npm publish
-        working-directory: sdk
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+ publish:
+   runs-on: ubuntu-latest
+   permissions:
+     contents: read
+     packages: write
+   steps:
+     - uses: actions/checkout@v3
+     - uses: actions/setup-node@v3
+       with:
+         node-version: 14
+         registry-url: https://npm.pkg.github.com/
+     - run: npm install
+     - run: npm publish
+       env:
+         NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
