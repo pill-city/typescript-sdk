@@ -1,14 +1,14 @@
 {
-  "name": "",
-  "version": "",
-  "description": "OpenAPI client for ",
+  "name": "pill-city-sdk",
+  "version": "0.0.1",
+  "description": "OpenAPI client for pill-city-sdk",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
     "axios",
     "typescript",
     "openapi-client",
     "openapi-generator",
-    ""
+    "pill-city-sdk"
   ],
   "license": "Unlicense",
   "main": "./dist/index.js",
