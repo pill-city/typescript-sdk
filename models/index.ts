@@ -1,4 +1,7 @@
 export * from './circle';
+export * from './cloud-emoticon-category';
+export * from './cloud-emoticon-entry';
+export * from './cloud-emoticon-repo';
 export * from './comment';
 export * from './inline-response200';
 export * from './message';
