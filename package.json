@@ -1,6 +1,6 @@
 {
   "name": "@pill-city/typescript-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "OpenAPI client for @pill-city/typescript-sdk",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
