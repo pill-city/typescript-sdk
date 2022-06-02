@@ -13,6 +13,7 @@
  */
 import { Circle } from './circle';
 import { Comment } from './comment';
+import { MediaUrlV2 } from './media-url-v2';
 import { Poll } from './poll';
 import { Reaction } from './reaction';
 import { ResharedPost } from './reshared-post';
@@ -71,6 +72,12 @@ export interface Post {
      * @memberof Post
      */
     mediaUrls?: Array<string>;
+    /**
+     * v2 media URLs for the comment's media
+     * @type {Array<MediaUrlV2>}
+     * @memberof Post
+     */
+    mediaUrlsV2?: Array<MediaUrlV2>;
     /**
      * Reactions for the post
      * @type {Array<Reaction>}

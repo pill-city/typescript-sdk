@@ -11,6 +11,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { MediaUrlV2 } from './media-url-v2';
 import { User } from './user';
 /**
  * 
@@ -36,6 +37,12 @@ export interface PollChoice {
      * @memberof PollChoice
      */
     media: string;
+    /**
+     * 
+     * @type {MediaUrlV2}
+     * @memberof PollChoice
+     */
+    mediaUrlV2?: MediaUrlV2;
     /**
      * User who have voted for this poll choice
      * @type {Array<User>}

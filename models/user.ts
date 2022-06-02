@@ -11,6 +11,7 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
+import { MediaUrlV2 } from './media-url-v2';
 /**
  * 
  * @export
@@ -35,6 +36,12 @@ export interface User {
      * @memberof User
      */
     avatarUrl?: string;
+    /**
+     * 
+     * @type {MediaUrlV2}
+     * @memberof User
+     */
+    avatarUrlV2?: MediaUrlV2;
     /**
      * User's choice of profile banner. The choices are defined on web frontend.
      * @type {string}

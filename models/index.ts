@@ -4,6 +4,7 @@ export * from './cloud-emoticon-entry';
 export * from './cloud-emoticon-repo';
 export * from './comment';
 export * from './inline-response200';
+export * from './media-url-v2';
 export * from './message';
 export * from './nested-comment';
 export * from './poll';
